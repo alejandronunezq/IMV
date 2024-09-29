@@ -1,59 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/yellow_background"
     tools:context=".MainActivity">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="16dp"
-        android:gravity="center">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Selecciona un tipo de equipo"
-            android:textSize="18sp"
-            android:layout_marginBottom="24dp" />
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:src="@drawable/logo_imv_cel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/button_laptops"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Laptops" />
+    <TextView
+android:id="@+id/textView"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Selecciona un tipo de equipo"
+android:textSize="20sp"
+android:textColor="@color/black"
+app:layout_constraintTop_toBottomOf="@id/logo"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintEnd_toEndOf="parent" />
 
-        <Button
-            android:id="@+id/button_celulares"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Celulares"
-            android:layout_marginTop="16dp" />
 
-        <Button
-            android:id="@+id/button_radios"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Radios"
-            android:layout_marginTop="16dp" />
+<Button
+android:id="@+id/button_laptops"
+android:layout_width="0dp"
+android:layout_height="wrap_content"
+android:text="Laptops"
+android:backgroundTint="@color/black"
+android:textColor="@color/white"
+android:drawableLeft="@drawable/laptop"
+android:drawablePadding="8dp"
+app:layout_constraintTop_toBottomOf="@id/textView"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+android:layout_marginTop="16dp" />
 
-        <Button
-            android:id="@+id/button_impresoras"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Impresoras"
-            android:layout_marginTop="16dp" />
 
-        <Button
-            android:id="@+id/button_tablets"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Tablets"
-            android:layout_marginTop="16dp" />
-    </LinearLayout>
+<Button
+android:id="@+id/button_celulares"
+android:layout_width="0dp"
+android:layout_height="wrap_content"
+android:text="Celulares"
+    android:backgroundTint="@color/black"
+android:textColor="@color/white"
+android:drawableLeft="@drawable/phone"
+android:drawablePadding="8dp"
+app:layout_constraintTop_toBottomOf="@id/button_laptops"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+android:layout_marginTop="16dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+<Button
+android:id="@+id/button_radios"
+android:layout_width="0dp"
+android:layout_height="wrap_content"
+android:text="Radios"
+android:backgroundTint="@color/black"
+android:textColor="@color/white"
+android:drawableLeft="@drawable/radio"
+android:drawablePadding="8dp"
+app:layout_constraintTop_toBottomOf="@id/button_celulares"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+android:layout_marginTop="16dp" />
+
+
+<Button
+android:id="@+id/button_impresoras"
+android:layout_width="0dp"
+android:layout_height="wrap_content"
+android:text="Impresoras"
+android:backgroundTint="@color/black"
+android:textColor="@color/white"
+android:drawableLeft="@drawable/printer"
+android:drawablePadding="8dp"
+app:layout_constraintTop_toBottomOf="@id/button_radios"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+android:layout_marginTop="16dp" />
+
+
+<Button
+android:id="@+id/button_tablets"
+android:layout_width="0dp"
+android:layout_height="wrap_content"
+android:text="Tablets"
+android:backgroundTint="@color/black"
+android:textColor="@color/white"
+android:drawableLeft="@drawable/tablet"
+android:drawablePadding="8dp"
+app:layout_constraintTop_toBottomOf="@id/button_impresoras"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+android:layout_marginTop="16dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">IMV</string>
+    <string name="title_activity_radios">RadiosActivity</string>
 </resources>

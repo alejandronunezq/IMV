@@ -59,7 +59,7 @@ public class LaptopsActivity extends AppCompatActivity {
             return;
         }
 
-        String url = "http://192.168.0.100/get_laptop.php?n_s=" + numeroSerie;
+        String url = "https://mynethome.ddns.net/get_laptop.php?n_s=" + numeroSerie;
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
