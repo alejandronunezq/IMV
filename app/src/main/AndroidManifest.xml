@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Permiso para conexión a Internet -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -15,34 +16,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.APPIMV"
         tools:targetApi="31">
-        <activity
-            android:name=".TabletsActivity"
-            android:exported="false"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity
-            android:name=".ImpresorasActivity"
-            android:exported="false"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity
-            android:name=".CelularesActivity"
-            android:exported="false"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity
-            android:name=".RadiosActivity"
-            android:exported="false"
-            android:label="@string/title_activity_radios"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <!-- MainActivity configurada como la actividad de inicio -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LaptopsActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+
+        <!-- GateActivity sin filtros de inicio, solo accesible después del login -->
+        <activity
+            android:name=".GateActivity"
+            android:exported="true">
+        </activity>
 
     </application>
 

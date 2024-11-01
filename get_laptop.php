@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: application/json');
-require 'database.php';
+require '/var/www/database.php';
 
 if (isset($_GET['n_s'])) {
     $n_s = $_GET['n_s'];

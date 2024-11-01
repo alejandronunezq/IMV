@@ -50,6 +50,7 @@ android {
 }
 
 dependencies {
+
     implementation(libs.lifecycle.runtime.ktx)
     implementation(libs.activity.compose)
     implementation(platform(libs.compose.bom))
@@ -60,10 +61,11 @@ dependencies {
     androidTestImplementation(platform(libs.compose.bom))
     androidTestImplementation(libs.ui.test.junit4)
     val activity_version = 1.7
-    // Java language implementation
+
     implementation("androidx.activity:activity:$activity_version")
-    // Kotlin
     implementation("androidx.activity:activity-ktx:$activity_version")
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)

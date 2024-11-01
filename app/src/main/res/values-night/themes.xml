@@ -1,7 +1,6 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.APPIMV" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+<resources>
+    <style name="Theme.APPIMV" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:statusBarColor">@android:color/transparent</item> <!-- Hace la barra de estado transparente -->
+        <item name="android:windowLightStatusBar">true</item> <!-- Cambia el color de los íconos para que sean visibles en fondo claro -->
     </style>
 </resources>
