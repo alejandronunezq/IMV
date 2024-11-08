@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                     LoginResponse loginResponse = response.body();
                     if (loginResponse.isSuccess()) {
                         // Redirección solo después del login exitoso
-                        Toast.makeText(MainActivity.this, "Login exitoso", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Inicio de sesioòn exitoso", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(MainActivity.this, GateActivity.class);
                         startActivity(intent);
                         finish(); // Finaliza MainActivity para evitar volver atrás sin autenticación

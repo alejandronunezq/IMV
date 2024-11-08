@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_account"
+        android:title="Mi cuenta"
+        android:iconTint="@color/black"
+        android:icon="@drawable/user" />
+    <item
+        android:id="@+id/nav_absences"
+        android:title="Faltas"
+         />
+    <item
+        android:id="@+id/nav_grades"
+        android:title="Calificaciones"
+         />
+    <item
+        android:id="@+id/nav_schedule"
+        android:title="Horario"
+        />
+</menu>
