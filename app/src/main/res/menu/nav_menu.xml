@@ -6,15 +6,12 @@
         android:iconTint="@color/black"
         android:icon="@drawable/user" />
     <item
-        android:id="@+id/nav_absences"
-        android:title="Faltas"
+        android:id="@+id/nav_equipos"
+        android:title="Equipos"
          />
     <item
-        android:id="@+id/nav_grades"
-        android:title="Calificaciones"
+        android:id="@+id/nav_reportes"
+        android:title="Reportes"
          />
-    <item
-        android:id="@+id/nav_schedule"
-        android:title="Horario"
-        />
+
 </menu>
