@@ -6,15 +6,15 @@
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="80dp"
         android:gravity="center"
         android:orientation="vertical"
         android:background="@color/yellow_background">
 
         <ImageView
-            android:layout_width="200dp"
-            android:layout_height="100dp"
-            android:src="@mipmap/imvapp" />
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:src="@drawable/logo_imv" />
 
     </LinearLayout>
 
