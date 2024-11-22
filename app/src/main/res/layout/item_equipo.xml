@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Nombre del empleado -->
+    <TextView
+        android:id="@+id/tvEmpleadoNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre del Empleado"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Detalles del empleado -->
+    <TextView
+        android:id="@+id/tvDepartamento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Departamento"
+        android:layout_marginBottom="4dp" />
+
+    <TextView
+        android:id="@+id/tvPuesto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Puesto"
+        android:layout_marginBottom="4dp" />
+
+    <TextView
+        android:id="@+id/tvEmpresa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Empresa"
+        android:layout_marginBottom="4dp" />
+
+    <TextView
+        android:id="@+id/tvUbicacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ubicación"
+        android:layout_marginBottom="4dp" />
+
+    <TextView
+        android:id="@+id/tvCorreo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Correo"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Detalles de Laptop -->
+    <TextView
+        android:id="@+id/tvLaptopDetalles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Detalles Laptop"
+        android:textStyle="bold"
+        android:layout_marginBottom="4dp" />
+
+    <TextView
+        android:id="@+id/tvLaptop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Laptop"
+        android:layout_marginBottom="4dp" />
+
+    <!-- Detalles de Celular -->
+    <TextView
+        android:id="@+id/tvCelularDetalles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Detalles Celular"
+        android:textStyle="bold"
+        android:layout_marginBottom="4dp" />
+
+    <TextView
+        android:id="@+id/tvCelular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Celular"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Botones -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="8dp">
+
+        <Button
+            android:id="@+id/btnVisualizar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="4dp"
+            android:text="Visualizar"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black" />
+
+        <Button
+            android:id="@+id/btnActualizar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="4dp"
+            android:text="Actualizar"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black" />
+
+        <Button
+            android:id="@+id/btnEliminar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="4dp"
+            android:text="Eliminar"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+</LinearLayout>
