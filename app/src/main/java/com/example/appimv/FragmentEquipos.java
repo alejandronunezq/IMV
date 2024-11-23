@@ -48,7 +48,12 @@ public class FragmentEquipos extends Fragment {
 
             @Override
             public void onActualizar(Equipo equipo) {
-                actualizarEquipo(equipo);
+                habilitarEdicion(equipo);
+            }
+
+            @Override
+            public void onGuardar(Equipo equipo) {
+                guardarCambios(equipo);
             }
 
             @Override
@@ -127,7 +132,6 @@ public class FragmentEquipos extends Fragment {
     }
 
     private void visualizarEquipo(Equipo equipo) {
-        // Muestra detalles del equipo en un Toast o implementa un Fragment/Diálogo para más detalles
         String detalles = "Empleado: " + equipo.getEmpleadoNombre() + "\n"
                 + "Departamento: " + equipo.getDepartamento() + "\n"
                 + "Laptop: " + equipo.getLaptopMarca() + " - " + equipo.getLaptopModelo() + "\n"
@@ -135,9 +139,38 @@ public class FragmentEquipos extends Fragment {
         Toast.makeText(getContext(), detalles, Toast.LENGTH_LONG).show();
     }
 
-    private void actualizarEquipo(Equipo equipo) {
-        // Implementar lógica para actualización (puede ser abrir un formulario o diálogo)
-        Toast.makeText(getContext(), "Actualizando: " + equipo.getEmpleadoNombre(), Toast.LENGTH_SHORT).show();
+    private void habilitarEdicion(Equipo equipo) {
+        int index = equipoList.indexOf(equipo);
+        if (index != -1) {
+            Equipo editableEquipo = equipoList.get(index);
+            editableEquipo.setEditable(true); // Habilitar edición
+            adapter.notifyItemChanged(index); // Notificar cambio al adaptador
+        }
+    }
+
+    private void guardarCambios(Equipo equipo) {
+        ApiClient.actualizarEquipo(equipo, getContext(), new ApiClient.ApiResponseListener() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+                    if (response.getBoolean("success")) {
+                        Toast.makeText(getContext(), "Cambios guardados correctamente", Toast.LENGTH_SHORT).show();
+                        equipo.setEditable(false); // Deshabilitar edición
+                        adapter.notifyDataSetChanged(); // Refrescar datos
+                    } else {
+                        Toast.makeText(getContext(), "No se pudieron guardar los cambios", Toast.LENGTH_SHORT).show();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Toast.makeText(getContext(), "Error al procesar la respuesta", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }, new ApiClient.ApiErrorListener() {
+            @Override
+            public void onError(Exception e) {
+                Toast.makeText(getContext(), "Error al conectar con el servidor", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void eliminarEquipo(Equipo equipo) {

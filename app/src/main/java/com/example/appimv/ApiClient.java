@@ -1,6 +1,7 @@
 package com.example.appimv;
 
 import android.content.Context;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
@@ -37,15 +38,79 @@ public class ApiClient {
                 url,
                 null,
                 response -> responseListener.onResponse(response),
-                error -> errorListener.onError(error)
+                error -> errorListener.onError(new Exception(error.getMessage()))
         );
 
         addToRequestQueue(request); // Usa el método seguro para agregar la solicitud
     }
 
-    public static void eliminarEquipo(String empleadoNombre, Context context, ApiResponseListener apiResponseListener, ApiErrorListener apiErrorListener) {
+    // Método para eliminar equipos
+    public static void eliminarEquipo(String empleadoNombre, Context context, ApiResponseListener responseListener, ApiErrorListener errorListener) {
+        String url = "https://mynethome.ddns.net/eliminar.php";
+
+        JSONObject params = new JSONObject();
+        try {
+            params.put("empleado_nombre", empleadoNombre);
+        } catch (Exception e) {
+            errorListener.onError(e);
+            return;
+        }
+
+        JsonObjectRequest request = new JsonObjectRequest(
+                Request.Method.POST,
+                url,
+                params,
+                response -> responseListener.onResponse(response),
+                error -> errorListener.onError(new Exception(error.getMessage()))
+        );
+
+        addToRequestQueue(request);
     }
 
+    // Método para actualizar equipos
+    public static void actualizarEquipo(Equipo equipo, Context context, ApiResponseListener responseListener, ApiErrorListener errorListener) {
+        String url = "https://mynethome.ddns.net/actualizar.php";
+
+        JSONObject params = new JSONObject();
+        try {
+            params.put("empleado_id", equipo.getEmpleadoId());
+            params.put("empleado_nombre", equipo.getEmpleadoNombre());
+            params.put("departamento", equipo.getDepartamento());
+            params.put("puesto", equipo.getPuesto());
+            params.put("empresa", equipo.getEmpresa());
+            params.put("ubicacion", equipo.getUbicacion());
+            params.put("empleado_correo", equipo.getEmpleadoCorreo());
+
+            params.put("laptop_marca", equipo.getLaptopMarca());
+            params.put("laptop_modelo", equipo.getLaptopModelo());
+            params.put("laptop_numero_serie", equipo.getLaptopNumeroSerie());
+            params.put("laptop_mac", equipo.getLaptopMac());
+            params.put("laptop_procesador", equipo.getLaptopProcesador());
+            params.put("laptop_ram", equipo.getLaptopRam());
+            params.put("laptop_almacenamiento", equipo.getLaptopAlmacenamiento());
+
+            params.put("celular_marca", equipo.getCelularMarca());
+            params.put("celular_modelo", equipo.getCelularModelo());
+            params.put("celular_numero", equipo.getCelularNumero());
+            params.put("celular_numero_serie", equipo.getCelularNumeroSerie());
+            params.put("celular_imei", equipo.getCelularImei());
+        } catch (Exception e) {
+            errorListener.onError(e);
+            return;
+        }
+
+        JsonObjectRequest request = new JsonObjectRequest(
+                Request.Method.POST,
+                url,
+                params,
+                response -> responseListener.onResponse(response),
+                error -> errorListener.onError(new Exception(error.getMessage()))
+        );
+
+        addToRequestQueue(request);
+    }
+
+    // Interfaces para respuestas y errores
     public interface ApiResponseListener {
         void onResponse(JSONObject response);
     }

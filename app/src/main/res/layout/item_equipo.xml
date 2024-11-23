@@ -7,120 +7,141 @@
     android:padding="16dp">
 
     <!-- Nombre del empleado -->
-    <TextView
-        android:id="@+id/tvEmpleadoNombre"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/etEmpleadoNombre"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nombre del Empleado"
+        android:hint="Nombre del Empleado"
         android:textStyle="bold"
-        android:textSize="18sp"
-        android:layout_marginBottom="8dp" />
+        android:textSize="18sp" />
 
     <!-- Detalles del empleado -->
-    <TextView
-        android:id="@+id/tvDepartamento"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/etDepartamento"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Departamento"
-        android:layout_marginBottom="4dp" />
+        android:hint="Departamento" />
 
-    <TextView
-        android:id="@+id/tvPuesto"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/etPuesto"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Puesto"
-        android:layout_marginBottom="4dp" />
+        android:hint="Puesto" />
 
-    <TextView
-        android:id="@+id/tvEmpresa"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/etEmpresa"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Empresa"
-        android:layout_marginBottom="4dp" />
+        android:hint="Empresa" />
 
-    <TextView
-        android:id="@+id/tvUbicacion"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/etUbicacion"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ubicación"
-        android:layout_marginBottom="4dp" />
+        android:hint="Ubicación" />
 
-    <TextView
-        android:id="@+id/tvCorreo"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/etCorreo"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Correo"
-        android:layout_marginBottom="8dp" />
+        android:hint="Correo" />
 
     <!-- Detalles de Laptop -->
-    <TextView
-        android:id="@+id/tvLaptopDetalles"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/etLaptopMarca"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Detalles Laptop"
-        android:textStyle="bold"
-        android:layout_marginBottom="4dp" />
+        android:hint="Marca de la Laptop" />
 
-    <TextView
-        android:id="@+id/tvLaptop"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/etLaptopModelo"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Laptop"
-        android:layout_marginBottom="4dp" />
+        android:hint="Modelo de la Laptop" />
+
+    <EditText
+        android:id="@+id/etLaptopNumeroSerie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Número de Serie" />
+
+    <EditText
+        android:id="@+id/etLaptopMac"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="MAC de la Laptop" />
+
+    <EditText
+        android:id="@+id/etLaptopProcesador"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Procesador" />
+
+    <EditText
+        android:id="@+id/etLaptopRam"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="RAM" />
+
+    <EditText
+        android:id="@+id/etLaptopAlmacenamiento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Almacenamiento" />
 
     <!-- Detalles de Celular -->
-    <TextView
-        android:id="@+id/tvCelularDetalles"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/etCelularMarca"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Detalles Celular"
-        android:textStyle="bold"
-        android:layout_marginBottom="4dp" />
+        android:hint="Marca del Celular" />
 
-    <TextView
-        android:id="@+id/tvCelular"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/etCelularModelo"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Celular"
-        android:layout_marginBottom="8dp" />
+        android:hint="Modelo del Celular" />
+
+    <EditText
+        android:id="@+id/etCelularNumero"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Número" />
+
+    <EditText
+        android:id="@+id/etCelularNumeroSerie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Número de Serie" />
+
+    <EditText
+        android:id="@+id/etCelularImei"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="IMEI" />
 
     <!-- Botones -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginTop="8dp">
+        android:gravity="end"
+        android:layout_marginTop="16dp">
 
         <Button
-            android:id="@+id/btnVisualizar"
-            android:layout_width="0dp"
+            android:id="@+id/btnGuardar"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="4dp"
-            android:text="Visualizar"
-            android:backgroundTint="@color/white"
-            android:textColor="@color/black" />
-
-        <Button
-            android:id="@+id/btnActualizar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="4dp"
-            android:text="Actualizar"
+            android:text="Guardar"
             android:backgroundTint="@color/white"
             android:textColor="@color/black" />
 
         <Button
             android:id="@+id/btnEliminar"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="4dp"
             android:text="Eliminar"
             android:backgroundTint="@color/white"
             android:textColor="@color/black" />
     </LinearLayout>
-
 </LinearLayout>
