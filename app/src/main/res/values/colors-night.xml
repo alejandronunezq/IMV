@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="app_night_black">#FFFFFF</color> <!-- Invertido para modo noche -->
+    <color name="app_night_white">#000000</color>
+    <color name="app_night_yellow_background">#121212</color>
+</resources>

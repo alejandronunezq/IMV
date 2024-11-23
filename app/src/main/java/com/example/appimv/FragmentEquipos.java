@@ -43,17 +43,12 @@ public class FragmentEquipos extends Fragment {
         adapter = new EquipoAdapter(equipoList, new EquipoAdapter.OnEquipoClickListener() {
             @Override
             public void onVisualizar(Equipo equipo) {
-                visualizarEquipo(equipo);
+
             }
 
             @Override
             public void onActualizar(Equipo equipo) {
-                habilitarEdicion(equipo);
-            }
-
-            @Override
-            public void onGuardar(Equipo equipo) {
-                guardarCambios(equipo);
+                actualizarEquipo(equipo);
             }
 
             @Override
@@ -87,6 +82,7 @@ public class FragmentEquipos extends Fragment {
 
                             // Crear objeto Equipo a partir de la respuesta JSON
                             Equipo equipo = new Equipo();
+                            equipo.setEmpleadoId(json.optString("empleado_id", "0"));
                             equipo.setEmpleadoNombre(json.optString("empleado_nombre", "Sin Nombre"));
                             equipo.setDepartamento(json.optString("departamento", "Sin Departamento"));
                             equipo.setPuesto(json.optString("puesto", "Sin Puesto"));
@@ -131,34 +127,15 @@ public class FragmentEquipos extends Fragment {
         });
     }
 
-    private void visualizarEquipo(Equipo equipo) {
-        String detalles = "Empleado: " + equipo.getEmpleadoNombre() + "\n"
-                + "Departamento: " + equipo.getDepartamento() + "\n"
-                + "Laptop: " + equipo.getLaptopMarca() + " - " + equipo.getLaptopModelo() + "\n"
-                + "Celular: " + equipo.getCelularMarca() + " - " + equipo.getCelularModelo();
-        Toast.makeText(getContext(), detalles, Toast.LENGTH_LONG).show();
-    }
-
-    private void habilitarEdicion(Equipo equipo) {
-        int index = equipoList.indexOf(equipo);
-        if (index != -1) {
-            Equipo editableEquipo = equipoList.get(index);
-            editableEquipo.setEditable(true); // Habilitar edición
-            adapter.notifyItemChanged(index); // Notificar cambio al adaptador
-        }
-    }
-
-    private void guardarCambios(Equipo equipo) {
+    private void actualizarEquipo(Equipo equipo) {
         ApiClient.actualizarEquipo(equipo, getContext(), new ApiClient.ApiResponseListener() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
                     if (response.getBoolean("success")) {
-                        Toast.makeText(getContext(), "Cambios guardados correctamente", Toast.LENGTH_SHORT).show();
-                        equipo.setEditable(false); // Deshabilitar edición
-                        adapter.notifyDataSetChanged(); // Refrescar datos
+                        Toast.makeText(getContext(), "Equipo actualizado correctamente", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(getContext(), "No se pudieron guardar los cambios", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "No se pudo actualizar el equipo", Toast.LENGTH_SHORT).show();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -179,7 +156,7 @@ public class FragmentEquipos extends Fragment {
             public void onResponse(JSONObject response) {
                 try {
                     if (response.getBoolean("success")) {
-                        Toast.makeText(getContext(), "Equipo eliminado: " + equipo.getEmpleadoNombre(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Equipo eliminado correctamente", Toast.LENGTH_SHORT).show();
                         equipoList.remove(equipo);
                         adapter.notifyDataSetChanged();
                     } else {

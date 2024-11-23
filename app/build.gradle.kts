@@ -61,7 +61,7 @@ dependencies {
     androidTestImplementation(platform(libs.compose.bom))
     androidTestImplementation(libs.ui.test.junit4)
     val activity_version = 1.7
-
+    implementation ("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("androidx.activity:activity:$activity_version")
     implementation("androidx.activity:activity-ktx:$activity_version")
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
@@ -76,4 +76,5 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
+
 }

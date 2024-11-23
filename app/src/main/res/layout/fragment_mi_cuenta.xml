@@ -15,6 +15,6 @@
         android:text="Nombre del usuario"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:textColor="@color/white" />
+        android:textColor="@color/app_white" />
 </LinearLayout>
 

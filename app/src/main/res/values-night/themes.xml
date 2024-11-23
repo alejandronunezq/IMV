@@ -1,6 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="Theme.APPIMV" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="android:statusBarColor">@android:color/transparent</item> <!-- Hace la barra de estado transparente -->
-        <item name="android:windowLightStatusBar">true</item> <!-- Cambia el color de los íconos para que sean visibles en fondo claro -->
+        <item name="colorPrimary">@color/app_yellow_background</item>
+        <item name="colorPrimaryVariant">@color/app_yellow_background</item>
+        <item name="colorOnPrimary">@color/app_white</item>
+        <item name="android:statusBarColor">@color/app_yellow_background</item>
+        <item name="android:windowBackground">@color/app_black</item>
     </style>
+
 </resources>

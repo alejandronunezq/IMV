@@ -146,7 +146,7 @@ public class EquipoAdapter extends RecyclerView.Adapter<EquipoAdapter.EquipoView
             etCelularNumero = itemView.findViewById(R.id.etCelularNumero);
             etCelularNumeroSerie = itemView.findViewById(R.id.etCelularNumeroSerie);
             etCelularImei = itemView.findViewById(R.id.etCelularImei);
-            btnVisualizar = itemView.findViewById(R.id.btnVisualizar);
+
             btnActualizar = itemView.findViewById(R.id.btnActualizar);
             btnGuardar = itemView.findViewById(R.id.btnGuardar);
             btnEliminar = itemView.findViewById(R.id.btnEliminar);

@@ -32,8 +32,7 @@
         <!-- Actividad secundaria -->
         <activity
             android:name=".GateActivity"
-            android:exported="true">
-        </activity>
+            android:theme="@style/Theme.APPIMV" />
 
     </application>
 

@@ -4,144 +4,210 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="8dp"
+    android:background="#1E1E1E"
+    android:layout_marginBottom="8dp">
 
     <!-- Nombre del empleado -->
-    <EditText
-        android:id="@+id/etEmpleadoNombre"
+    <TextView
+        android:id="@+id/tvEmpleadoNombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nombre del Empleado"
+        android:text="Nombre del Empleado"
+        android:textColor="#FFFFFF"
         android:textStyle="bold"
-        android:textSize="18sp" />
+        android:layout_marginBottom="4dp" />
 
-    <!-- Detalles del empleado -->
-    <EditText
-        android:id="@+id/etDepartamento"
+    <!-- Departamento -->
+    <TextView
+        android:id="@+id/tvDepartamento"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Departamento" />
+        android:text="Departamento"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="4dp" />
 
-    <EditText
-        android:id="@+id/etPuesto"
+    <!-- Puesto -->
+    <TextView
+        android:id="@+id/tvPuesto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Puesto" />
+        android:text="Puesto"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="4dp" />
 
-    <EditText
-        android:id="@+id/etEmpresa"
+    <!-- Empresa -->
+    <TextView
+        android:id="@+id/tvEmpresa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Empresa" />
+        android:text="Empresa"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="4dp" />
 
-    <EditText
-        android:id="@+id/etUbicacion"
+    <!-- Ubicación -->
+    <TextView
+        android:id="@+id/tvUbicacion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Ubicación" />
+        android:text="Ubicación"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="8dp" />
 
+    <!-- Correo -->
     <EditText
         android:id="@+id/etCorreo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Correo" />
+        android:hint="Correo Electrónico"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#B0B0B0"
+        android:layout_marginBottom="12dp" />
 
-    <!-- Detalles de Laptop -->
+    <!-- Detalles de la Laptop -->
     <EditText
         android:id="@+id/etLaptopMarca"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Marca de la Laptop" />
+        android:hint="Marca de la Laptop"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#B0B0B0"
+        android:layout_marginBottom="12dp" />
 
     <EditText
         android:id="@+id/etLaptopModelo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Modelo de la Laptop" />
+        android:hint="Modelo de la Laptop"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#B0B0B0"
+        android:layout_marginBottom="12dp" />
 
     <EditText
         android:id="@+id/etLaptopNumeroSerie"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Número de Serie" />
+        android:hint="Número de Serie"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#B0B0B0"
+        android:layout_marginBottom="12dp" />
 
     <EditText
         android:id="@+id/etLaptopMac"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="MAC de la Laptop" />
+        android:hint="MAC de la Laptop"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#B0B0B0"
+        android:layout_marginBottom="12dp" />
 
     <EditText
         android:id="@+id/etLaptopProcesador"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Procesador" />
+        android:hint="Procesador de la Laptop"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#B0B0B0"
+        android:layout_marginBottom="12dp" />
 
     <EditText
         android:id="@+id/etLaptopRam"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="RAM" />
+        android:hint="RAM de la Laptop"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#B0B0B0"
+        android:layout_marginBottom="12dp" />
 
     <EditText
         android:id="@+id/etLaptopAlmacenamiento"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Almacenamiento" />
+        android:hint="Almacenamiento de la Laptop"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#B0B0B0"
+        android:layout_marginBottom="12dp" />
 
-    <!-- Detalles de Celular -->
+    <!-- Detalles del Celular -->
     <EditText
         android:id="@+id/etCelularMarca"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Marca del Celular" />
+        android:hint="Marca del Celular"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#B0B0B0"
+        android:layout_marginBottom="12dp" />
 
     <EditText
         android:id="@+id/etCelularModelo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Modelo del Celular" />
+        android:hint="Modelo del Celular"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#B0B0B0"
+        android:layout_marginBottom="12dp" />
 
     <EditText
         android:id="@+id/etCelularNumero"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Número" />
+        android:hint="Número del Celular"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#B0B0B0"
+        android:layout_marginBottom="12dp" />
 
     <EditText
         android:id="@+id/etCelularNumeroSerie"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Número de Serie" />
+        android:hint="Número de Serie del Celular"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#B0B0B0"
+        android:layout_marginBottom="12dp" />
 
     <EditText
         android:id="@+id/etCelularImei"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="IMEI" />
+        android:hint="IMEI del Celular"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#B0B0B0"
+        android:layout_marginBottom="12dp" />
 
     <!-- Botones -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="end"
-        android:layout_marginTop="16dp">
+        android:gravity="center"
+        android:layout_marginTop="8dp">
+
+        <Button
+            android:id="@+id/btnActualizar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Actualizar"
+            android:backgroundTint="#FFFFFF"
+            android:textColor="#000000" />
 
         <Button
             android:id="@+id/btnGuardar"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="Guardar"
-            android:backgroundTint="@color/white"
-            android:textColor="@color/black" />
+            android:visibility="gone"
+            android:backgroundTint="#FFFFFF"
+            android:textColor="#000000" />
 
         <Button
             android:id="@+id/btnEliminar"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="Eliminar"
-            android:backgroundTint="@color/white"
-            android:textColor="@color/black" />
+            android:backgroundTint="#FFFFFF"
+            android:textColor="#000000" />
     </LinearLayout>
 </LinearLayout>

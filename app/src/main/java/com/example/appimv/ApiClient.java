@@ -13,14 +13,12 @@ public class ApiClient {
 
     private static RequestQueue requestQueue;
 
-    // Inicializar el RequestQueue
     public static void init(Context context) {
         if (requestQueue == null) {
             requestQueue = Volley.newRequestQueue(context.getApplicationContext());
         }
     }
 
-    // Método para agregar solicitudes a la cola
     public static <T> void addToRequestQueue(Request<T> request) {
         if (requestQueue != null) {
             requestQueue.add(request);
@@ -29,7 +27,6 @@ public class ApiClient {
         }
     }
 
-    // Método para buscar equipos
     public static void buscar(String query, Context context, ApiResponseListener responseListener, ApiErrorListener errorListener) {
         String url = "https://mynethome.ddns.net/buscar.php?query=" + query;
 
@@ -41,33 +38,9 @@ public class ApiClient {
                 error -> errorListener.onError(new Exception(error.getMessage()))
         );
 
-        addToRequestQueue(request); // Usa el método seguro para agregar la solicitud
-    }
-
-    // Método para eliminar equipos
-    public static void eliminarEquipo(String empleadoNombre, Context context, ApiResponseListener responseListener, ApiErrorListener errorListener) {
-        String url = "https://mynethome.ddns.net/eliminar.php";
-
-        JSONObject params = new JSONObject();
-        try {
-            params.put("empleado_nombre", empleadoNombre);
-        } catch (Exception e) {
-            errorListener.onError(e);
-            return;
-        }
-
-        JsonObjectRequest request = new JsonObjectRequest(
-                Request.Method.POST,
-                url,
-                params,
-                response -> responseListener.onResponse(response),
-                error -> errorListener.onError(new Exception(error.getMessage()))
-        );
-
         addToRequestQueue(request);
     }
 
-    // Método para actualizar equipos
     public static void actualizarEquipo(Equipo equipo, Context context, ApiResponseListener responseListener, ApiErrorListener errorListener) {
         String url = "https://mynethome.ddns.net/actualizar.php";
 
@@ -110,7 +83,28 @@ public class ApiClient {
         addToRequestQueue(request);
     }
 
-    // Interfaces para respuestas y errores
+    public static void eliminarEquipo(String empleadoNombre, Context context, ApiResponseListener responseListener, ApiErrorListener errorListener) {
+        String url = "https://mynethome.ddns.net/eliminar.php";
+
+        JSONObject params = new JSONObject();
+        try {
+            params.put("empleado_nombre", empleadoNombre);
+        } catch (Exception e) {
+            errorListener.onError(e);
+            return;
+        }
+
+        JsonObjectRequest request = new JsonObjectRequest(
+                Request.Method.POST,
+                url,
+                params,
+                response -> responseListener.onResponse(response),
+                error -> errorListener.onError(new Exception(error.getMessage()))
+        );
+
+        addToRequestQueue(request);
+    }
+
     public interface ApiResponseListener {
         void onResponse(JSONObject response);
     }

@@ -3,7 +3,7 @@
     <item
         android:id="@+id/nav_account"
         android:title="Mi cuenta"
-        android:iconTint="@color/black"
+        android:iconTint="@color/app_black"
         android:icon="@drawable/user" />
     <item
         android:id="@+id/nav_equipos"

@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="textColor">#FFFFFF</color>
-    <color name="yellow_background">#FFE958</color>
-    <color name="colorPrimary">#007ACD</color> <!-- Azul corporativo -->
-    <color name="colorPrimaryDark">#005AA7</color> <!-- Azul más oscuro -->
-    <color name="colorAccent">#FFC107</color> <!-- Amarillo para acento -->
-    <color name="colorBackground">#FFFFFF</color> <!-- Fondo blanco -->
-    <color name="colorText">#212121</color> <!-- Texto gris oscuro -->
-    <color name="colorDrawerBackground">#F5F5F5</color> <!-- Fondo del Navigation Drawer -->
+    <color name="app_black">#000000</color>
+    <color name="app_white">#FFFFFF</color>
+    <color name="app_yellow_background">#FFEC56</color>
 </resources>

@@ -8,7 +8,7 @@
 
     <!-- Campo de búsqueda -->
     <EditText
-        android:textColor="@color/black"
+        android:textColor="@color/app_black"
         android:id="@+id/etSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,8 +18,8 @@
 
     <!-- Botón de búsqueda -->
     <Button
-        android:textColor="@color/black"
-        android:backgroundTint="@color/white"
+        android:textColor="@color/app_black"
+        android:backgroundTint="@color/app_white"
         android:id="@+id/btnSearch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

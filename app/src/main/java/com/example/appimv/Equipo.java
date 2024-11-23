@@ -1,7 +1,7 @@
 package com.example.appimv;
 
 public class Equipo {
-
+    private String empleadoId;
     private String empleadoNombre;
     private String departamento;
     private String puesto;
@@ -23,188 +23,164 @@ public class Equipo {
     private String celularNumeroSerie;
     private String celularImei;
 
-    // Constructor vacío
-    public Equipo() {
+    // Métodos Getter y Setter para empleadoId
+    public String getEmpleadoId() {
+        return empleadoId;
     }
 
-    // Constructor completo
-    public Equipo(String empleadoNombre, String departamento, String puesto, String empresa, String ubicacion,
-                  String empleadoCorreo, String laptopMarca, String laptopModelo, String laptopNumeroSerie,
-                  String laptopMac, String laptopProcesador, String laptopRam, String laptopAlmacenamiento,
-                  String celularMarca, String celularModelo, String celularNumero, String celularNumeroSerie,
-                  String celularImei) {
-        this.empleadoNombre = empleadoNombre;
-        this.departamento = departamento;
-        this.puesto = puesto;
-        this.empresa = empresa;
-        this.ubicacion = ubicacion;
-        this.empleadoCorreo = empleadoCorreo;
-
-        this.laptopMarca = laptopMarca;
-        this.laptopModelo = laptopModelo;
-        this.laptopNumeroSerie = laptopNumeroSerie;
-        this.laptopMac = laptopMac;
-        this.laptopProcesador = laptopProcesador;
-        this.laptopRam = laptopRam;
-        this.laptopAlmacenamiento = laptopAlmacenamiento;
-
-        this.celularMarca = celularMarca;
-        this.celularModelo = celularModelo;
-        this.celularNumero = celularNumero;
-        this.celularNumeroSerie = celularNumeroSerie;
-        this.celularImei = celularImei;
+    public void setEmpleadoId(String empleadoId) {
+        this.empleadoId = empleadoId;
     }
 
-    // Getters y setters para atributos del empleado
+    // Métodos Getter y Setter para empleadoNombre
     public String getEmpleadoNombre() {
-        return empleadoNombre != null ? empleadoNombre : "N/A";
+        return empleadoNombre;
     }
 
     public void setEmpleadoNombre(String empleadoNombre) {
-        this.empleadoNombre = empleadoNombre.trim();
+        this.empleadoNombre = empleadoNombre;
     }
 
+    // Métodos Getter y Setter para departamento
     public String getDepartamento() {
-        return departamento != null ? departamento : "Sin Departamento";
+        return departamento;
     }
 
     public void setDepartamento(String departamento) {
-        this.departamento = departamento.trim();
+        this.departamento = departamento;
     }
 
+    // Métodos Getter y Setter para puesto
     public String getPuesto() {
-        return puesto != null ? puesto : "Sin Puesto";
+        return puesto;
     }
 
     public void setPuesto(String puesto) {
-        this.puesto = puesto.trim();
+        this.puesto = puesto;
     }
 
+    // Métodos Getter y Setter para empresa
     public String getEmpresa() {
-        return empresa != null ? empresa : "Sin Empresa";
+        return empresa;
     }
 
     public void setEmpresa(String empresa) {
-        this.empresa = empresa.trim();
+        this.empresa = empresa;
     }
 
+    // Métodos Getter y Setter para ubicacion
     public String getUbicacion() {
-        return ubicacion != null ? ubicacion : "Sin Ubicación";
+        return ubicacion;
     }
 
     public void setUbicacion(String ubicacion) {
-        this.ubicacion = ubicacion.trim();
+        this.ubicacion = ubicacion;
     }
 
+    // Métodos Getter y Setter para empleadoCorreo
     public String getEmpleadoCorreo() {
-        return empleadoCorreo != null ? empleadoCorreo : "Sin Correo";
+        return empleadoCorreo;
     }
 
     public void setEmpleadoCorreo(String empleadoCorreo) {
-        this.empleadoCorreo = empleadoCorreo.trim();
+        this.empleadoCorreo = empleadoCorreo;
     }
 
-    // Getters y setters para atributos de la laptop
+    // Métodos Getter y Setter para Laptop
     public String getLaptopMarca() {
-        return laptopMarca != null ? laptopMarca : "Sin Marca";
+        return laptopMarca;
     }
 
     public void setLaptopMarca(String laptopMarca) {
-        this.laptopMarca = laptopMarca.trim();
+        this.laptopMarca = laptopMarca;
     }
 
     public String getLaptopModelo() {
-        return laptopModelo != null ? laptopModelo : "Sin Modelo";
+        return laptopModelo;
     }
 
     public void setLaptopModelo(String laptopModelo) {
-        this.laptopModelo = laptopModelo.trim();
+        this.laptopModelo = laptopModelo;
     }
 
     public String getLaptopNumeroSerie() {
-        return laptopNumeroSerie != null ? laptopNumeroSerie : "Sin Número de Serie";
+        return laptopNumeroSerie;
     }
 
     public void setLaptopNumeroSerie(String laptopNumeroSerie) {
-        this.laptopNumeroSerie = laptopNumeroSerie.trim();
+        this.laptopNumeroSerie = laptopNumeroSerie;
     }
 
     public String getLaptopMac() {
-        return laptopMac != null ? laptopMac : "Sin MAC Address";
+        return laptopMac;
     }
 
     public void setLaptopMac(String laptopMac) {
-        this.laptopMac = laptopMac.trim();
+        this.laptopMac = laptopMac;
     }
 
     public String getLaptopProcesador() {
-        return laptopProcesador != null ? laptopProcesador : "Sin Procesador";
+        return laptopProcesador;
     }
 
     public void setLaptopProcesador(String laptopProcesador) {
-        this.laptopProcesador = laptopProcesador.trim();
+        this.laptopProcesador = laptopProcesador;
     }
 
     public String getLaptopRam() {
-        return laptopRam != null ? laptopRam : "Sin RAM";
+        return laptopRam;
     }
 
     public void setLaptopRam(String laptopRam) {
-        this.laptopRam = laptopRam.trim();
+        this.laptopRam = laptopRam;
     }
 
     public String getLaptopAlmacenamiento() {
-        return laptopAlmacenamiento != null ? laptopAlmacenamiento : "Sin Almacenamiento";
+        return laptopAlmacenamiento;
     }
 
     public void setLaptopAlmacenamiento(String laptopAlmacenamiento) {
-        this.laptopAlmacenamiento = laptopAlmacenamiento.trim();
+        this.laptopAlmacenamiento = laptopAlmacenamiento;
     }
 
-    // Getters y setters para atributos del celular
+    // Métodos Getter y Setter para Celular
     public String getCelularMarca() {
-        return celularMarca != null ? celularMarca : "Sin Marca";
+        return celularMarca;
     }
 
     public void setCelularMarca(String celularMarca) {
-        this.celularMarca = celularMarca.trim();
+        this.celularMarca = celularMarca;
     }
 
     public String getCelularModelo() {
-        return celularModelo != null ? celularModelo : "Sin Modelo";
+        return celularModelo;
     }
 
     public void setCelularModelo(String celularModelo) {
-        this.celularModelo = celularModelo.trim();
+        this.celularModelo = celularModelo;
     }
 
     public String getCelularNumero() {
-        return celularNumero != null ? celularNumero : "Sin Número";
+        return celularNumero;
     }
 
     public void setCelularNumero(String celularNumero) {
-        this.celularNumero = celularNumero.trim();
+        this.celularNumero = celularNumero;
     }
 
     public String getCelularNumeroSerie() {
-        return celularNumeroSerie != null ? celularNumeroSerie : "Sin Número de Serie";
+        return celularNumeroSerie;
     }
 
     public void setCelularNumeroSerie(String celularNumeroSerie) {
-        this.celularNumeroSerie = celularNumeroSerie.trim();
+        this.celularNumeroSerie = celularNumeroSerie;
     }
 
     public String getCelularImei() {
-        return celularImei != null ? celularImei : "Sin IMEI";
+        return celularImei;
     }
 
     public void setCelularImei(String celularImei) {
-        this.celularImei = celularImei != null ? celularImei.trim() : null;
-    }
-
-    // Método para mostrar información completa (opcional)
-    @Override
-    public String toString() {
-        return "Empleado: " + empleadoNombre + " | Laptop: " + laptopMarca + " " + laptopModelo + " | Celular: " + celularMarca + " " + celularModelo;
+        this.celularImei = celularImei;
     }
 }

@@ -34,7 +34,7 @@ public class GateActivity extends AppCompatActivity {
         setContentView(R.layout.activity_gate);
 
         // Configurar Toolbar
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
 
         // Configurar DrawerLayout
