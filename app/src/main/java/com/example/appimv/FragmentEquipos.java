@@ -1,6 +1,7 @@
 package com.example.appimv;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -132,10 +133,12 @@ public class FragmentEquipos extends Fragment {
             @Override
             public void onResponse(JSONObject response) {
                 try {
+                    Log.d("FragmentEquipos", "Respuesta del servidor: " + response.toString());
+
                     if (response.getBoolean("success")) {
                         Toast.makeText(getContext(), "Equipo actualizado correctamente", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(getContext(), "No se pudo actualizar el equipo", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "No se pudo actualizar el equipo: " + response.getString("message"), Toast.LENGTH_SHORT).show();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -145,6 +148,7 @@ public class FragmentEquipos extends Fragment {
         }, new ApiClient.ApiErrorListener() {
             @Override
             public void onError(Exception e) {
+                Log.e("FragmentEquipos", "Error al conectar con el servidor", e);
                 Toast.makeText(getContext(), "Error al conectar con el servidor", Toast.LENGTH_SHORT).show();
             }
         });

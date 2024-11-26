@@ -1,6 +1,7 @@
 package com.example.appimv;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -53,7 +54,7 @@ public class ApiClient {
             params.put("empresa", equipo.getEmpresa());
             params.put("ubicacion", equipo.getUbicacion());
             params.put("empleado_correo", equipo.getEmpleadoCorreo());
-
+            params.put("laptop_id", equipo.getLaptopId());
             params.put("laptop_marca", equipo.getLaptopMarca());
             params.put("laptop_modelo", equipo.getLaptopModelo());
             params.put("laptop_numero_serie", equipo.getLaptopNumeroSerie());
@@ -61,12 +62,15 @@ public class ApiClient {
             params.put("laptop_procesador", equipo.getLaptopProcesador());
             params.put("laptop_ram", equipo.getLaptopRam());
             params.put("laptop_almacenamiento", equipo.getLaptopAlmacenamiento());
-
+            params.put("celular_id", equipo.getCelularId());
             params.put("celular_marca", equipo.getCelularMarca());
             params.put("celular_modelo", equipo.getCelularModelo());
             params.put("celular_numero", equipo.getCelularNumero());
             params.put("celular_numero_serie", equipo.getCelularNumeroSerie());
             params.put("celular_imei", equipo.getCelularImei());
+
+            // Agregar log
+            Log.d("ApiClient", "Datos enviados: " + params.toString());
         } catch (Exception e) {
             errorListener.onError(e);
             return;

@@ -9,6 +9,7 @@ public class Equipo {
     private String ubicacion;
     private String empleadoCorreo;
 
+    private String laptopId; // Campo agregado
     private String laptopMarca;
     private String laptopModelo;
     private String laptopNumeroSerie;
@@ -17,13 +18,14 @@ public class Equipo {
     private String laptopRam;
     private String laptopAlmacenamiento;
 
+    private String celularId; // Campo agregado
     private String celularMarca;
     private String celularModelo;
     private String celularNumero;
     private String celularNumeroSerie;
     private String celularImei;
 
-    // Métodos Getter y Setter para empleadoId
+    // Getters y Setters para todos los campos
     public String getEmpleadoId() {
         return empleadoId;
     }
@@ -32,7 +34,6 @@ public class Equipo {
         this.empleadoId = empleadoId;
     }
 
-    // Métodos Getter y Setter para empleadoNombre
     public String getEmpleadoNombre() {
         return empleadoNombre;
     }
@@ -41,7 +42,6 @@ public class Equipo {
         this.empleadoNombre = empleadoNombre;
     }
 
-    // Métodos Getter y Setter para departamento
     public String getDepartamento() {
         return departamento;
     }
@@ -50,7 +50,6 @@ public class Equipo {
         this.departamento = departamento;
     }
 
-    // Métodos Getter y Setter para puesto
     public String getPuesto() {
         return puesto;
     }
@@ -59,7 +58,6 @@ public class Equipo {
         this.puesto = puesto;
     }
 
-    // Métodos Getter y Setter para empresa
     public String getEmpresa() {
         return empresa;
     }
@@ -68,7 +66,6 @@ public class Equipo {
         this.empresa = empresa;
     }
 
-    // Métodos Getter y Setter para ubicacion
     public String getUbicacion() {
         return ubicacion;
     }
@@ -77,7 +74,6 @@ public class Equipo {
         this.ubicacion = ubicacion;
     }
 
-    // Métodos Getter y Setter para empleadoCorreo
     public String getEmpleadoCorreo() {
         return empleadoCorreo;
     }
@@ -86,7 +82,14 @@ public class Equipo {
         this.empleadoCorreo = empleadoCorreo;
     }
 
-    // Métodos Getter y Setter para Laptop
+    public String getLaptopId() {
+        return laptopId;
+    }
+
+    public void setLaptopId(String laptopId) {
+        this.laptopId = laptopId;
+    }
+
     public String getLaptopMarca() {
         return laptopMarca;
     }
@@ -143,7 +146,14 @@ public class Equipo {
         this.laptopAlmacenamiento = laptopAlmacenamiento;
     }
 
-    // Métodos Getter y Setter para Celular
+    public String getCelularId() {
+        return celularId;
+    }
+
+    public void setCelularId(String celularId) {
+        this.celularId = celularId;
+    }
+
     public String getCelularMarca() {
         return celularMarca;
     }
