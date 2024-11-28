@@ -45,16 +45,9 @@ public class FragmentEmpleados extends Fragment {
     }
 
     private void guardarEmpleado() {
+        // Capturar los datos desde los EditText
         String nombre = etNombre.getText().toString().trim();
         String correo = etCorreo.getText().toString().trim();
-
-        // Validar campos obligatorios
-        if (TextUtils.isEmpty(nombre) || TextUtils.isEmpty(correo)) {
-            Toast.makeText(getContext(), "El nombre y el correo son obligatorios", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        // Capturar campos opcionales
         String departamento = etDepartamento.getText().toString().trim();
         String puesto = etPuesto.getText().toString().trim();
         String empresa = etEmpresa.getText().toString().trim();
@@ -62,11 +55,27 @@ public class FragmentEmpleados extends Fragment {
         Integer celularId = TextUtils.isEmpty(etCelularId.getText().toString()) ? null : Integer.parseInt(etCelularId.getText().toString());
         Integer laptopId = TextUtils.isEmpty(etLaptopId.getText().toString()) ? null : Integer.parseInt(etLaptopId.getText().toString());
 
-        // Llamar a la API para guardar
-        ApiService apiService = RetrofitClient.getClient().create(ApiService.class);
-        Call<GenericResponse> call = apiService.insertarEmpleado(
-                nombre, correo, departamento, puesto, empresa, ubicacion, celularId, laptopId
+        // Validar campos obligatorios
+        if (TextUtils.isEmpty(nombre) || TextUtils.isEmpty(correo)) {
+            Toast.makeText(getContext(), "El nombre y el correo son obligatorios", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Crear objeto Empleado
+        Empleado empleado = new Empleado(
+                nombre,
+                correo,
+                departamento,
+                puesto,
+                empresa,
+                ubicacion,
+                celularId,
+                laptopId
         );
+
+        // Llamar a la API
+        ApiService apiService = RetrofitClient.getClient().create(ApiService.class);
+        Call<GenericResponse> call = apiService.insertarEmpleado(empleado);
 
         call.enqueue(new Callback<GenericResponse>() {
             @Override

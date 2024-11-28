@@ -1,0 +1,108 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <Spinner
+            android:id="@+id/spinner_tipo_equipo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/tipo_equipo" />
+
+        <!-- Campos comunes -->
+        <EditText
+            android:id="@+id/et_marca"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Marca" />
+
+        <EditText
+            android:id="@+id/et_modelo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Modelo" />
+
+        <EditText
+            android:id="@+id/et_numero_serie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Número de Serie" />
+
+        <EditText
+            android:id="@+id/et_precio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Precio" />
+
+        <EditText
+            android:id="@+id/et_mac_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="MAC Address" />
+
+        <!-- Layout específico de Laptop -->
+        <LinearLayout
+            android:id="@+id/layout_laptop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/et_procesador"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Procesador" />
+
+            <EditText
+                android:id="@+id/et_ram"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="RAM" />
+
+            <EditText
+                android:id="@+id/et_almacenamiento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Almacenamiento" />
+        </LinearLayout>
+
+        <!-- Layout específico de Celular -->
+        <LinearLayout
+            android:id="@+id/layout_celular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/et_numero"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Número" />
+
+            <EditText
+                android:id="@+id/et_correo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Correo" />
+
+            <EditText
+                android:id="@+id/et_imei"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="IMEI" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_guardar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Guardar" />
+    </LinearLayout>
+</ScrollView>

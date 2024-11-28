@@ -10,7 +10,11 @@ public class Empleado {
     private Integer celularId;
     private Integer laptopId;
 
-    // Constructor
+    // Constructor vacío necesario para Retrofit y Gson
+    public Empleado() {
+    }
+
+    // Constructor completo
     public Empleado(String nombre, String correo, String departamento, String puesto,
                     String empresa, String ubicacion, Integer celularId, Integer laptopId) {
         this.nombre = nombre;
@@ -86,5 +90,20 @@ public class Empleado {
 
     public void setLaptopId(Integer laptopId) {
         this.laptopId = laptopId;
+    }
+
+    // Método toString para depuración
+    @Override
+    public String toString() {
+        return "Empleado{" +
+                "nombre='" + nombre + '\'' +
+                ", correo='" + correo + '\'' +
+                ", departamento='" + departamento + '\'' +
+                ", puesto='" + puesto + '\'' +
+                ", empresa='" + empresa + '\'' +
+                ", ubicacion='" + ubicacion + '\'' +
+                ", celularId=" + celularId +
+                ", laptopId=" + laptopId +
+                '}';
     }
 }

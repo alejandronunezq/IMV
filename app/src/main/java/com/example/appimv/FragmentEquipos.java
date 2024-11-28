@@ -1,8 +1,5 @@
 package com.example.appimv;
 
-import com.example.appimv.R;
-
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -37,7 +34,7 @@ public class FragmentEquipos extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_equipos, container, false);
 
-        // Vincular elementos del layout
+        // Inicializar vistas
         etSearch = view.findViewById(R.id.etSearch);
         btnSearch = view.findViewById(R.id.btnSearch);
         recyclerEquipos = view.findViewById(R.id.recyclerEquipos);
@@ -47,7 +44,7 @@ public class FragmentEquipos extends Fragment {
         adapter = new EquipoAdapter(equipoList, new EquipoAdapter.OnEquipoClickListener() {
             @Override
             public void onVisualizar(Equipo equipo) {
-
+                // Acción para visualizar (opcional)
             }
 
             @Override
@@ -62,7 +59,7 @@ public class FragmentEquipos extends Fragment {
         });
         recyclerEquipos.setAdapter(adapter);
 
-        // Configurar acción del botón buscar
+        // Acción de búsqueda
         btnSearch.setOnClickListener(v -> buscarEquipos(etSearch.getText().toString().trim()));
 
         return view;
@@ -78,13 +75,11 @@ public class FragmentEquipos extends Fragment {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    equipoList.clear(); // Limpiar lista antes de actualizar
+                    equipoList.clear();
                     if (response.getBoolean("success")) {
                         JSONArray data = response.getJSONArray("data");
                         for (int i = 0; i < data.length(); i++) {
                             JSONObject json = data.getJSONObject(i);
-
-                            // Crear objeto Equipo a partir de la respuesta JSON
                             Equipo equipo = new Equipo();
                             equipo.setEmpleadoId(json.optString("empleado_id", "0"));
                             equipo.setEmpleadoNombre(json.optString("empleado_nombre", "Sin Nombre"));
@@ -111,74 +106,43 @@ public class FragmentEquipos extends Fragment {
                             equipoList.add(equipo);
                         }
                         adapter.notifyDataSetChanged();
-
-                        if (equipoList.isEmpty()) {
-                            Toast.makeText(getContext(), "No se encontraron resultados", Toast.LENGTH_SHORT).show();
-                        }
                     } else {
                         Toast.makeText(getContext(), "No se encontraron resultados", Toast.LENGTH_SHORT).show();
                     }
                 } catch (Exception e) {
-                    e.printStackTrace();
                     Toast.makeText(getContext(), "Error al procesar los datos", Toast.LENGTH_SHORT).show();
                 }
             }
-        }, new ApiClient.ApiErrorListener() {
-            @Override
-            public void onError(Exception e) {
-                Toast.makeText(getContext(), "Error al conectar con el servidor", Toast.LENGTH_SHORT).show();
-            }
-        });
+        }, error -> Toast.makeText(getContext(), "Error al conectar con el servidor", Toast.LENGTH_SHORT).show());
     }
 
     private void actualizarEquipo(Equipo equipo) {
-        ApiClient.actualizarEquipo(equipo, getContext(), new ApiClient.ApiResponseListener() {
-            @Override
-            public void onResponse(JSONObject response) {
-                try {
-                    Log.d("FragmentEquipos", "Respuesta del servidor: " + response.toString());
-
-                    if (response.getBoolean("success")) {
-                        Toast.makeText(getContext(), "Equipo actualizado correctamente", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(getContext(), "No se pudo actualizar el equipo: " + response.getString("message"), Toast.LENGTH_SHORT).show();
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    Toast.makeText(getContext(), "Error al procesar la respuesta", Toast.LENGTH_SHORT).show();
+        ApiClient.actualizarEquipo(equipo, getContext(), response -> {
+            try {
+                if (response.getBoolean("success")) {
+                    Toast.makeText(getContext(), "Equipo actualizado correctamente", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getContext(), "Error: " + response.getString("message"), Toast.LENGTH_SHORT).show();
                 }
+            } catch (Exception e) {
+                Toast.makeText(getContext(), "Error al procesar la respuesta", Toast.LENGTH_SHORT).show();
             }
-        }, new ApiClient.ApiErrorListener() {
-            @Override
-            public void onError(Exception e) {
-                Log.e("FragmentEquipos", "Error al conectar con el servidor", e);
-                Toast.makeText(getContext(), "Error al conectar con el servidor", Toast.LENGTH_SHORT).show();
-            }
-        });
+        }, error -> Toast.makeText(getContext(), "Error al conectar con el servidor", Toast.LENGTH_SHORT).show());
     }
 
     private void eliminarEquipo(Equipo equipo) {
-        ApiClient.eliminarEquipo(equipo.getEmpleadoNombre(), getContext(), new ApiClient.ApiResponseListener() {
-            @Override
-            public void onResponse(JSONObject response) {
-                try {
-                    if (response.getBoolean("success")) {
-                        Toast.makeText(getContext(), "Equipo eliminado correctamente", Toast.LENGTH_SHORT).show();
-                        equipoList.remove(equipo);
-                        adapter.notifyDataSetChanged();
-                    } else {
-                        Toast.makeText(getContext(), "No se pudo eliminar el equipo", Toast.LENGTH_SHORT).show();
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    Toast.makeText(getContext(), "Error al procesar la respuesta", Toast.LENGTH_SHORT).show();
+        ApiClient.eliminarEquipo(equipo.getEmpleadoNombre(), getContext(), response -> {
+            try {
+                if (response.getBoolean("success")) {
+                    equipoList.remove(equipo);
+                    adapter.notifyDataSetChanged();
+                    Toast.makeText(getContext(), "Equipo eliminado correctamente", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getContext(), "Error al eliminar equipo", Toast.LENGTH_SHORT).show();
                 }
+            } catch (Exception e) {
+                Toast.makeText(getContext(), "Error al procesar la respuesta", Toast.LENGTH_SHORT).show();
             }
-        }, new ApiClient.ApiErrorListener() {
-            @Override
-            public void onError(Exception e) {
-                Toast.makeText(getContext(), "Error al conectar con el servidor", Toast.LENGTH_SHORT).show();
-            }
-        });
+        }, error -> Toast.makeText(getContext(), "Error al conectar con el servidor", Toast.LENGTH_SHORT).show());
     }
 }

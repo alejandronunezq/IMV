@@ -50,14 +50,13 @@ android {
 }
 
 dependencies {
+    // Retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
-    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
-
-    // OkHttp (para HttpLoggingInterceptor)
-    implementation ("com.squareup.okhttp3:okhttp:4.10.0")
-    implementation ("com.squareup.okhttp3:logging-interceptor:4.10.0")
-
+    // OkHttp
+    implementation("com.squareup.okhttp3:okhttp:4.11.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
 
     implementation(libs.lifecycle.runtime.ktx)
     implementation(libs.activity.compose)
@@ -66,23 +65,23 @@ dependencies {
     implementation(libs.ui.graphics)
     implementation(libs.ui.tooling.preview)
     implementation(libs.material3)
+
     androidTestImplementation(platform(libs.compose.bom))
     androidTestImplementation(libs.ui.test.junit4)
-    val activity_version = 1.7
-    implementation ("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation("androidx.activity:activity:$activity_version")
-    implementation("androidx.activity:activity-ktx:$activity_version")
-    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation("androidx.activity:activity-ktx:1.7.0")
+
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
     implementation(libs.volley)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
-
 }

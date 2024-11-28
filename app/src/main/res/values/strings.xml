@@ -3,7 +3,10 @@
     <string name="title_activity_radios">RadiosActivity</string>
     <string name="navigation_drawer_open">Abrir menú</string>
     <string name="navigation_drawer_close">Cerrar menú</string>
-
+    <string-array name="tipo_equipo">
+        <item>Laptop</item>
+        <item>Celular</item>
+    </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

@@ -34,9 +34,6 @@ public class MainActivity extends AppCompatActivity {
         loginButton.setOnClickListener(v -> performLogin());
     }
 
-    /**
-     * Configura el modo de pantalla completa dependiendo de la versión de Android.
-     */
     private void configureFullScreenMode() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             getWindow().setDecorFitsSystemWindows(false);
@@ -48,31 +45,26 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    /**
-     * Inicializa las vistas de la interfaz de usuario.
-     */
     private void initializeUI() {
         usernameEditText = findViewById(R.id.username);
         passwordEditText = findViewById(R.id.password);
         loginButton = findViewById(R.id.login_button);
     }
 
-    /**
-     * Ejecuta la operación de inicio de sesión al presionar el botón.
-     */
     private void performLogin() {
         String username = usernameEditText.getText().toString().trim();
         String password = passwordEditText.getText().toString().trim();
 
-        // Validar que los campos no estén vacíos
         if (username.isEmpty() || password.isEmpty()) {
             Toast.makeText(this, "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // Llamar a la API para el inicio de sesión
+        // Crear el objeto JSON para la solicitud
+        LoginRequest loginRequest = new LoginRequest(username, password);
+
         ApiService apiService = RetrofitClient.getClient().create(ApiService.class);
-        Call<LoginResponse> call = apiService.loginUser(username, password);
+        Call<LoginResponse> call = apiService.loginUser(loginRequest);
 
         call.enqueue(new Callback<LoginResponse>() {
             @Override
@@ -80,26 +72,19 @@ public class MainActivity extends AppCompatActivity {
                 if (response.isSuccessful() && response.body() != null) {
                     handleLoginResponse(response.body());
                 } else {
-                    Toast.makeText(MainActivity.this, "Error en la respuesta del servidor. Código: " + response.code(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Error en la respuesta del servidor.", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
-                Toast.makeText(MainActivity.this, "Error de conexión: Verifique su conexión a Internet.", Toast.LENGTH_SHORT).show();
-                t.printStackTrace();
+                Toast.makeText(MainActivity.this, "Error de conexión", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    /**
-     * Maneja la respuesta de la API de inicio de sesión.
-     *
-     * @param loginResponse La respuesta de la API.
-     */
     private void handleLoginResponse(LoginResponse loginResponse) {
         if (loginResponse.isSuccess()) {
-            // Redirigir a GateActivity con el nombre del usuario
             String nombre = loginResponse.getNombre();
             Intent intent = new Intent(MainActivity.this, GateActivity.class);
             intent.putExtra("NOMBRE", nombre);

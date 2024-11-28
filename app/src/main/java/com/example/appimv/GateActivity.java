@@ -21,7 +21,6 @@ public class GateActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Configurar borde a borde
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             getWindow().setDecorFitsSystemWindows(false);
         } else {
@@ -33,22 +32,18 @@ public class GateActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_gate);
 
-        // Configurar Toolbar
         Toolbar toolbar = findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
 
-        // Configurar DrawerLayout
         drawerLayout = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-        // Obtener el nombre del usuario desde el Intent
         String nombre = getIntent().getStringExtra("NOMBRE");
 
-        // Cargar el fragmento predeterminado ("Mi Cuenta")
-        if (savedInstanceState == null) { // Evitar recargar el fragmento en rotaciones
+        if (savedInstanceState == null) {
             Fragment fragmentMiCuenta = new FragmentMiCuenta();
             Bundle bundle = new Bundle();
             bundle.putString("NOMBRE", nombre);
@@ -59,13 +54,11 @@ public class GateActivity extends AppCompatActivity {
                     .commit();
         }
 
-        // Configurar NavigationView
         NavigationView navigationView = findViewById(R.id.navigation_view);
         navigationView.setNavigationItemSelectedListener(item -> {
             Fragment fragment = null;
             int id = item.getItemId();
 
-            // Cambiar switch por if-else
             if (id == R.id.nav_account) {
                 fragment = new FragmentMiCuenta();
                 Bundle bundle = new Bundle();
@@ -77,6 +70,8 @@ public class GateActivity extends AppCompatActivity {
                 fragment = new FragmentReportes();
             } else if (id == R.id.nav_personal) {
                 fragment = new FragmentEmpleados();
+            } else if (id == R.id.nav_altas) { // Manejar la nueva opción
+                fragment = new FragmentAltas();
             }
 
             if (fragment != null) {
