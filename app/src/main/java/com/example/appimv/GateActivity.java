@@ -65,6 +65,7 @@ public class GateActivity extends AppCompatActivity {
             Fragment fragment = null;
             int id = item.getItemId();
 
+            // Cambiar switch por if-else
             if (id == R.id.nav_account) {
                 fragment = new FragmentMiCuenta();
                 Bundle bundle = new Bundle();
@@ -74,6 +75,8 @@ public class GateActivity extends AppCompatActivity {
                 fragment = new FragmentEquipos();
             } else if (id == R.id.nav_reportes) {
                 fragment = new FragmentReportes();
+            } else if (id == R.id.nav_personal) {
+                fragment = new FragmentEmpleados();
             }
 
             if (fragment != null) {

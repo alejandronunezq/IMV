@@ -1,5 +1,8 @@
 package com.example.appimv;
 
+import com.example.appimv.R;
+
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;

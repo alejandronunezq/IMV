@@ -8,53 +8,52 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-        <!-- General -->
-        <string name="app_name">Control de Equipos TI</string>
-        <string name="actualizar">Actualizar</string>
-        <string name="guardar">Guardar</string>
-        <string name="eliminar">Eliminar</string>
+    <!-- General -->
+    <string name="app_name">Control de Equipos TI</string>
+    <string name="actualizar">Actualizar</string>
+    <string name="guardar">Guardar</string>
+    <string name="eliminar">Eliminar</string>
 
-        <!-- Nombre del empleado -->
-        <string name="nombre_empleado">Nombre del Empleado</string>
-        <string name="nombre_empleado_hint">Ingresa el nombre del empleado</string>
+    <!-- Nombre del empleado -->
+    <string name="nombre_empleado">Nombre del Empleado</string>
+    <string name="nombre_empleado_hint">Ingresa el nombre del empleado</string>
 
-        <!-- Departamento -->
-        <string name="departamento">Departamento</string>
-        <string name="departamento_hint">Ingresa el departamento</string>
+    <!-- Departamento -->
+    <string name="departamento">Departamento</string>
+    <string name="departamento_hint">Ingresa el departamento</string>
 
-        <!-- Puesto -->
-        <string name="puesto">Puesto</string>
-        <string name="puesto_hint">Ingresa el puesto</string>
+    <!-- Puesto -->
+    <string name="puesto">Puesto</string>
+    <string name="puesto_hint">Ingresa el puesto</string>
 
-        <!-- Empresa -->
-        <string name="empresa">Empresa</string>
-        <string name="empresa_hint">Ingresa el nombre de la empresa</string>
+    <!-- Empresa -->
+    <string name="empresa">Empresa</string>
+    <string name="empresa_hint">Ingresa el nombre de la empresa</string>
 
-        <!-- Ubicación -->
-        <string name="ubicacion">Ubicación</string>
-        <string name="ubicacion_hint">Ingresa la ubicación</string>
+    <!-- Ubicación -->
+    <string name="ubicacion">Ubicación</string>
+    <string name="ubicacion_hint">Ingresa la ubicación</string>
 
-        <!-- Correo -->
-        <string name="correo">Correo</string>
-        <string name="correo_hint">Ingresa el correo electrónico</string>
+    <!-- Correo -->
+    <string name="correo">Correo</string>
+    <string name="correo_hint">Ingresa el correo electrónico</string>
 
-        <!-- Detalles de Laptop -->
-        <string name="detalles_laptop">Detalles de la Laptop</string>
-        <string name="laptop_marca_hint">Ingresa la marca de la laptop</string>
-        <string name="laptop_modelo_hint">Ingresa el modelo de la laptop</string>
-        <string name="laptop_numero_serie_hint">Ingresa el número de serie de la laptop</string>
-        <string name="laptop_procesador_hint">Ingresa el procesador</string>
-        <string name="laptop_ram_hint">Ingresa la RAM</string>
-        <string name="laptop_almacenamiento_hint">Ingresa el almacenamiento</string>
+    <!-- Detalles de Laptop -->
+    <string name="detalles_laptop">Detalles de la Laptop</string>
+    <string name="laptop_marca_hint">Ingresa la marca de la laptop</string>
+    <string name="laptop_modelo_hint">Ingresa el modelo de la laptop</string>
+    <string name="laptop_numero_serie_hint">Ingresa el número de serie de la laptop</string>
+    <string name="laptop_procesador_hint">Ingresa el procesador</string>
+    <string name="laptop_ram_hint">Ingresa la RAM</string>
+    <string name="laptop_almacenamiento_hint">Ingresa el almacenamiento</string>
 
-        <!-- Detalles del Celular -->
-        <string name="detalles_celular">Detalles del Celular</string>
-        <string name="celular_marca_hint">Ingresa la marca del celular</string>
-        <string name="celular_modelo_hint">Ingresa el modelo del celular</string>
-        <string name="celular_numero_hint">Ingresa el número del celular</string>
-        <string name="celular_numero_serie_hint">Ingresa el número de serie del celular</string>
-        <string name="celular_imei_hint">Ingresa el IMEI</string>
-
+    <!-- Detalles del Celular -->
+    <string name="detalles_celular">Detalles del Celular</string>
+    <string name="celular_marca_hint">Ingresa la marca del celular</string>
+    <string name="celular_modelo_hint">Ingresa el modelo del celular</string>
+    <string name="celular_numero_hint">Ingresa el número del celular</string>
+    <string name="celular_numero_serie_hint">Ingresa el número de serie del celular</string>
+    <string name="celular_imei_hint">Ingresa el IMEI</string>
 
 
 </resources>

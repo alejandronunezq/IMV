@@ -50,4 +50,18 @@ public interface ApiService {
             @Field("celular_numero_serie") String celularNumeroSerie,
             @Field("celular_imei") String celularImei
     );
+
+    @FormUrlEncoded
+    @POST("insertar_empleado.php")
+    Call<GenericResponse> insertarEmpleado(
+            @Field("nombre") String nombre,
+            @Field("correo") String correo,
+            @Field("departamento") String departamento,
+            @Field("puesto") String puesto,
+            @Field("empresa") String empresa,
+            @Field("ubicacion") String ubicacion,
+            @Field("celular_id") Integer celularId,
+            @Field("laptop_id") Integer laptopId
+    );
 }
+
