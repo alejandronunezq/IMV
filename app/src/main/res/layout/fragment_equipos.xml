@@ -6,20 +6,14 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <!-- Campo de búsqueda -->
     <EditText
-        android:textColor="@color/app_black"
         android:id="@+id/etSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Buscar por nombre o número de serie"
-        android:padding="12dp"
-        android:background="@color/cardview_light_background" />
+        android:hint="Buscar por marca, modelo o número de serie"
+        android:padding="12dp" />
 
-    <!-- Botón de búsqueda -->
     <Button
-        android:textColor="@color/app_black"
-        android:backgroundTint="@color/app_white"
         android:id="@+id/btnSearch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -27,11 +21,9 @@
         android:layout_gravity="end"
         android:padding="8dp" />
 
-    <!-- RecyclerView -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerEquipos"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="16dp" />
-
 </LinearLayout>
