@@ -38,7 +38,7 @@ public class FragmentEquipos extends Fragment {
         recyclerEquipos = view.findViewById(R.id.recyclerEquipos);
 
         recyclerEquipos.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapter = new EquipoAdapter(equipoList);
+        adapter = new EquipoAdapter(equipoList, getContext());
         recyclerEquipos.setAdapter(adapter);
 
         btnSearch.setOnClickListener(v -> buscarEquipos(etSearch.getText().toString().trim()));
@@ -69,7 +69,6 @@ public class FragmentEquipos extends Fragment {
                         equipo.setMacAddress(json.optString("mac_address"));
                         equipo.setPrecio(json.optString("precio"));
 
-                        equipo.setEmpleadoId(json.optString("empleado_id"));
                         equipo.setEmpleadoNombre(json.optString("empleado_nombre"));
                         equipo.setDepartamento(json.optString("departamento"));
                         equipo.setPuesto(json.optString("puesto"));

@@ -1,6 +1,8 @@
 package com.example.appimv;
 
-public class Equipo {
+import java.io.Serializable;
+
+public class Equipo implements Serializable {
     private String id;
     private String tipo;
     private String marca;

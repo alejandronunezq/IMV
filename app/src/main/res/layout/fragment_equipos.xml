@@ -10,7 +10,7 @@
         android:id="@+id/etSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Buscar por marca, modelo o número de serie"
+        android:hint="Buscar por nombre de empleado, marca, modelo o número de serie"
         android:padding="12dp" />
 
     <Button
