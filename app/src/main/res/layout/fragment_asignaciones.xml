@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/etEmpleadoId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="ID del Empleado"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/etLaptopId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="ID del Laptop (opcional)"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/etCelularId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="ID del Celular (opcional)"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/btnAsignar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Asignar Equipo"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/btnDesasignar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Desasignar Equipo"
+        android:layout_marginTop="8dp" />
+</LinearLayout>

@@ -86,8 +86,11 @@ public class MainActivity extends AppCompatActivity {
     private void handleLoginResponse(LoginResponse loginResponse) {
         if (loginResponse.isSuccess()) {
             String nombre = loginResponse.getNombre();
+            String departamento = loginResponse.getDepartamento();
+
             Intent intent = new Intent(MainActivity.this, GateActivity.class);
             intent.putExtra("NOMBRE", nombre);
+            intent.putExtra("DEPARTAMENTO", departamento); // Pasar el departamento al siguiente Activity
             startActivity(intent);
             finish();
         } else {

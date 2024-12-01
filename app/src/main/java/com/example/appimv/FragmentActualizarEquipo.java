@@ -16,7 +16,7 @@ import androidx.fragment.app.Fragment;
 public class FragmentActualizarEquipo extends Fragment {
 
     private EditText etMarca, etModelo, etNumeroSerie, etMacAddress, etPrecio;
-    private TextView tvIdEquipo;
+    private TextView tvIdEquipo, tvTipoEquipo;
     private Button btnGuardar;
     private Equipo equipo;
 
@@ -32,6 +32,7 @@ public class FragmentActualizarEquipo extends Fragment {
         etMacAddress = view.findViewById(R.id.etMacAddress);
         etPrecio = view.findViewById(R.id.etPrecio);
         tvIdEquipo = view.findViewById(R.id.tvIdEquipo);
+        tvTipoEquipo = view.findViewById(R.id.tvTipoEquipo);
         btnGuardar = view.findViewById(R.id.btnGuardar);
 
         // Obtener los datos del equipo del bundle
@@ -54,16 +55,25 @@ public class FragmentActualizarEquipo extends Fragment {
             etMacAddress.setText(equipo.getMacAddress());
             etPrecio.setText(equipo.getPrecio());
             tvIdEquipo.setText("ID del Equipo: " + equipo.getId());
+            tvTipoEquipo.setText("Tipo: " + equipo.getTipo());
         }
     }
 
     private void actualizarEquipo() {
-        equipo.setMarca(etMarca.getText().toString());
-        equipo.setModelo(etModelo.getText().toString());
-        equipo.setNumeroSerie(etNumeroSerie.getText().toString());
-        equipo.setMacAddress(etMacAddress.getText().toString());
-        equipo.setPrecio(etPrecio.getText().toString());
+        if (equipo == null) {
+            Toast.makeText(getContext(), "Error: no se pudo cargar el equipo.", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
+        // Actualizar los datos del equipo con los valores ingresados
+        equipo.setMarca(etMarca.getText().toString().trim());
+        equipo.setModelo(etModelo.getText().toString().trim());
+        equipo.setNumeroSerie(etNumeroSerie.getText().toString().trim());
+        equipo.setMacAddress(etMacAddress.getText().toString().trim());
+        equipo.setPrecio(etPrecio.getText().toString().trim());
+        equipo.setTipo(tvTipoEquipo.getText().toString().replace("Tipo: ", "").trim());
+
+        // Llamar al método de actualización en ApiClient
         ApiClient.actualizarEquipo(equipo, getContext(), response -> {
             Toast.makeText(getContext(), "Equipo actualizado correctamente", Toast.LENGTH_SHORT).show();
             requireActivity().onBackPressed();

@@ -9,10 +9,12 @@ public class LoginResponse {
     @SerializedName("message")
     private String message;
 
-    @SerializedName("nombre") // Este debe coincidir con el campo en la respuesta JSON
+    @SerializedName("nombre")
     private String nombre;
 
-    // Getters para las propiedades
+    @SerializedName("departamento")
+    private String departamento;
+
     public boolean isSuccess() {
         return success;
     }
@@ -23,5 +25,9 @@ public class LoginResponse {
 
     public String getNombre() {
         return nombre;
+    }
+
+    public String getDepartamento() {
+        return departamento;
     }
 }

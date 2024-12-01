@@ -8,18 +8,26 @@
     <item
         android:id="@+id/nav_equipos"
         android:title="Equipos"
+        android:icon="@drawable/devices"
          />
+    <item
+        android:id="@+id/nav_asignaciones"
+    android:title="Asignaciones"
+        android:icon="@drawable/assignment"/>
 
     <item
         android:id="@+id/nav_personal"
         android:title="Personal"
+        android:icon="@drawable/group"
         />
     <item
         android:id="@+id/nav_altas"
-        android:title="Altas" />
+        android:title="Altas"
+        android:icon="@drawable/upload_"/>
+
     <item
-        android:id="@+id/nav_reportes"
-        android:title="Reportes"
-         />
+        android:id="@+id/nav_exit"
+        android:title="Salir"
+        android:icon="@drawable/logout" />
 
 </menu>

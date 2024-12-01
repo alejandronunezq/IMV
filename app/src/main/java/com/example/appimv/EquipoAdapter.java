@@ -36,7 +36,6 @@ public class EquipoAdapter extends RecyclerView.Adapter<EquipoAdapter.EquipoView
     public void onBindViewHolder(@NonNull EquipoViewHolder holder, int position) {
         Equipo equipo = equipoList.get(position);
 
-        // Configurar los datos del equipo en las vistas
         holder.tvIdEquipo.setText("ID: " + equipo.getId());
         holder.tvTipoEquipo.setText("Tipo: " + equipo.getTipo());
         holder.tvMarca.setText("Marca: " + equipo.getMarca());
@@ -44,6 +43,9 @@ public class EquipoAdapter extends RecyclerView.Adapter<EquipoAdapter.EquipoView
         holder.tvNumeroSerie.setText("Número de Serie: " + equipo.getNumeroSerie());
         holder.tvMacAddress.setText("MAC: " + equipo.getMacAddress());
         holder.tvPrecio.setText("Precio: " + equipo.getPrecio());
+
+        // Mostrar el ID del empleado
+        holder.tvIdEmpleado.setText("ID del Empleado: " + equipo.getEmpleadoId());
         holder.tvEmpleadoNombre.setText("Empleado: " + equipo.getEmpleadoNombre());
         holder.tvDepartamento.setText("Departamento: " + equipo.getDepartamento());
         holder.tvPuesto.setText("Puesto: " + equipo.getPuesto());
@@ -51,16 +53,13 @@ public class EquipoAdapter extends RecyclerView.Adapter<EquipoAdapter.EquipoView
         holder.tvUbicacion.setText("Ubicación: " + equipo.getUbicacion());
         holder.tvEmpleadoCorreo.setText("Correo: " + equipo.getEmpleadoCorreo());
 
-        // Configurar el clic en el botón Actualizar
         holder.btnActualizar.setOnClickListener(v -> {
             FragmentActualizarEquipo fragment = new FragmentActualizarEquipo();
 
-            // Pasar los datos del equipo al FragmentActualizarEquipo
             Bundle bundle = new Bundle();
             bundle.putSerializable("equipo", equipo);
             fragment.setArguments(bundle);
 
-            // Reemplazar el fragmento actual con FragmentActualizarEquipo
             FragmentManager fragmentManager = ((FragmentActivity) context).getSupportFragmentManager();
             fragmentManager.beginTransaction()
                     .replace(R.id.fragment_container, fragment)
@@ -76,7 +75,7 @@ public class EquipoAdapter extends RecyclerView.Adapter<EquipoAdapter.EquipoView
 
     public static class EquipoViewHolder extends RecyclerView.ViewHolder {
         TextView tvIdEquipo, tvTipoEquipo, tvMarca, tvModelo, tvNumeroSerie, tvMacAddress, tvPrecio;
-        TextView tvEmpleadoNombre, tvDepartamento, tvPuesto, tvEmpresa, tvUbicacion, tvEmpleadoCorreo;
+        TextView tvIdEmpleado, tvEmpleadoNombre, tvDepartamento, tvPuesto, tvEmpresa, tvUbicacion, tvEmpleadoCorreo;
         Button btnActualizar;
 
         public EquipoViewHolder(@NonNull View itemView) {
@@ -89,6 +88,7 @@ public class EquipoAdapter extends RecyclerView.Adapter<EquipoAdapter.EquipoView
             tvNumeroSerie = itemView.findViewById(R.id.tvNumeroSerie);
             tvMacAddress = itemView.findViewById(R.id.tvMacAddress);
             tvPrecio = itemView.findViewById(R.id.tvPrecio);
+            tvIdEmpleado = itemView.findViewById(R.id.tvIdEmpleado);
             tvEmpleadoNombre = itemView.findViewById(R.id.tvEmpleadoNombre);
             tvDepartamento = itemView.findViewById(R.id.tvDepartamento);
             tvPuesto = itemView.findViewById(R.id.tvPuesto);

@@ -69,6 +69,7 @@ public class FragmentEquipos extends Fragment {
                         equipo.setMacAddress(json.optString("mac_address"));
                         equipo.setPrecio(json.optString("precio"));
 
+                        equipo.setEmpleadoId(json.optString("empleado_id"));
                         equipo.setEmpleadoNombre(json.optString("empleado_nombre"));
                         equipo.setDepartamento(json.optString("departamento"));
                         equipo.setPuesto(json.optString("puesto"));

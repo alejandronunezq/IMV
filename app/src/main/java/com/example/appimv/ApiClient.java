@@ -19,6 +19,7 @@ public class ApiClient {
         }
     }
 
+    // Método de búsqueda (sin cambios)
     public static void buscar(String query, Context context, ApiResponseListener responseListener, ApiErrorListener errorListener) {
         String url = "https://mynethome.ddns.net/buscar.php?query=" + query;
 
@@ -33,12 +34,14 @@ public class ApiClient {
         requestQueue.add(request);
     }
 
+    // Método para actualizar equipos (tu código original)
     public static void actualizarEquipo(Equipo equipo, Context context, ApiResponseListener responseListener, ApiErrorListener errorListener) {
         String url = "https://mynethome.ddns.net/actualizar.php";
 
         try {
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("id", equipo.getId());
+            jsonObject.put("tipo_equipo", equipo.getTipo());
             jsonObject.put("marca", equipo.getMarca());
             jsonObject.put("modelo", equipo.getModelo());
             jsonObject.put("numero_serie", equipo.getNumeroSerie());
@@ -59,6 +62,31 @@ public class ApiClient {
         }
     }
 
+    // Nuevo método para asignar equipos
+    public static void asignarEquipo(int empleadoId, Integer laptopId, Integer celularId, Context context, ApiResponseListener responseListener, ApiErrorListener errorListener) {
+        String url = "https://mynethome.ddns.net/asignar.php";
+
+        try {
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("empleado_id", empleadoId);
+            jsonObject.put("laptop_id", laptopId); // Puede ser null si no se asigna laptop
+            jsonObject.put("celular_id", celularId); // Puede ser null si no se asigna celular
+
+            JsonObjectRequest request = new JsonObjectRequest(
+                    Request.Method.POST,
+                    url,
+                    jsonObject,
+                    responseListener::onResponse,
+                    error -> errorListener.onError(new Exception(error.getMessage()))
+            );
+
+            requestQueue.add(request);
+        } catch (Exception e) {
+            errorListener.onError(e);
+        }
+    }
+
+    // Interfaces para manejar respuestas y errores
     public interface ApiResponseListener {
         void onResponse(JSONObject response);
     }

@@ -1,10 +1,17 @@
 package com.example.appimv;
 
+import static android.content.Intent.getIntent;
+
+
+
 import android.os.Build;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
@@ -42,6 +49,7 @@ public class GateActivity extends AppCompatActivity {
         toggle.syncState();
 
         String nombre = getIntent().getStringExtra("NOMBRE");
+        String departamento = getIntent().getStringExtra("DEPARTAMENTO");
 
         if (savedInstanceState == null) {
             Fragment fragmentMiCuenta = new FragmentMiCuenta();
@@ -55,23 +63,44 @@ public class GateActivity extends AppCompatActivity {
         }
 
         NavigationView navigationView = findViewById(R.id.navigation_view);
+        configureNavigationMenu(navigationView, departamento);
+
         navigationView.setNavigationItemSelectedListener(item -> {
             Fragment fragment = null;
             int id = item.getItemId();
 
-            if (id == R.id.nav_account) {
-                fragment = new FragmentMiCuenta();
-                Bundle bundle = new Bundle();
-                bundle.putString("NOMBRE", nombre);
-                fragment.setArguments(bundle);
-            } else if (id == R.id.nav_equipos) {
-                fragment = new FragmentEquipos();
-            } else if (id == R.id.nav_reportes) {
-                fragment = new FragmentReportes();
-            } else if (id == R.id.nav_personal) {
-                fragment = new FragmentEmpleados();
-            } else if (id == R.id.nav_altas) { // Manejar la nueva opción
-                fragment = new FragmentAltas();
+            if ("TI".equalsIgnoreCase(departamento)) {
+                if (id == R.id.nav_account) {
+                    fragment = new FragmentMiCuenta();
+                } else if (id == R.id.nav_equipos) {
+                    fragment = new FragmentEquipos();
+                } else if (id == R.id.nav_personal) {
+                    fragment = new FragmentEmpleados();
+                } else if (id == R.id.nav_altas) {
+                    fragment = new FragmentAltas();
+                } else if (id == R.id.nav_asignaciones) {
+                    fragment = new FragmentAsignaciones();
+                } else if (id == R.id.nav_exit) { // Botón Salir
+                    finishAffinity(); // Finaliza todas las actividades y cierra la aplicación
+                    return true; // Salimos del listener
+                }
+            } else {
+                if (id == R.id.nav_account) {
+                    fragment = new FragmentMiCuenta();
+                } else if (id == R.id.nav_personal) {
+                    fragment = new FragmentEmpleados();
+                } else if (id == R.id.nav_exit) { // Botón Salir
+                    new AlertDialog.Builder(this)
+                            .setTitle("Salir")
+                            .setMessage("¿Estás seguro de que deseas salir?")
+                            .setPositiveButton("Sí", (dialog, which) -> finishAffinity())
+                            .setNegativeButton("No", null)
+                            .show();
+                    return true;
+                }
+                else {
+                    Toast.makeText(this, "Acceso restringido", Toast.LENGTH_SHORT).show();
+                }
             }
 
             if (fragment != null) {
@@ -83,6 +112,17 @@ public class GateActivity extends AppCompatActivity {
             drawerLayout.closeDrawer(GravityCompat.START);
             return true;
         });
+
+
+    }
+
+    private void configureNavigationMenu(NavigationView navigationView, String departamento) {
+        Menu menu = navigationView.getMenu();
+        if (!"TI".equalsIgnoreCase(departamento)) {
+            menu.findItem(R.id.nav_equipos).setVisible(false);
+            menu.findItem(R.id.nav_altas).setVisible(false);
+            menu.findItem(R.id.nav_asignaciones).setVisible(false);
+        }
     }
 
     @Override

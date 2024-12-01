@@ -3,6 +3,8 @@
     <string name="title_activity_radios">RadiosActivity</string>
     <string name="navigation_drawer_open">Abrir menú</string>
     <string name="navigation_drawer_close">Cerrar menú</string>
+    <string name="nav_asignaciones">Asignaciones</string>
+
     <string-array name="tipo_equipo">
         <item>Laptop</item>
         <item>Celular</item>
