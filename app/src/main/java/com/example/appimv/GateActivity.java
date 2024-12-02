@@ -1,12 +1,10 @@
 package com.example.appimv;
 
-import static android.content.Intent.getIntent;
-
-
-
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -51,6 +49,12 @@ public class GateActivity extends AppCompatActivity {
         String nombre = getIntent().getStringExtra("NOMBRE");
         String departamento = getIntent().getStringExtra("DEPARTAMENTO");
 
+        // Validar y asignar valores predeterminados si son nulos
+        if (departamento == null || departamento.isEmpty()) {
+            departamento = "default";
+        }
+        Log.d("GateActivity", "Usuario: " + nombre + ", Departamento: " + departamento);
+
         if (savedInstanceState == null) {
             Fragment fragmentMiCuenta = new FragmentMiCuenta();
             Bundle bundle = new Bundle();
@@ -65,52 +69,63 @@ public class GateActivity extends AppCompatActivity {
         NavigationView navigationView = findViewById(R.id.navigation_view);
         configureNavigationMenu(navigationView, departamento);
 
-        navigationView.setNavigationItemSelectedListener(item -> {
-            Fragment fragment = null;
-            int id = item.getItemId();
+        String finalDepartamento = departamento;
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem item) {
+                Fragment fragment = null;
+                int id = item.getItemId();
 
-            if ("TI".equalsIgnoreCase(departamento)) {
-                if (id == R.id.nav_account) {
-                    fragment = new FragmentMiCuenta();
-                } else if (id == R.id.nav_equipos) {
-                    fragment = new FragmentEquipos();
-                } else if (id == R.id.nav_personal) {
-                    fragment = new FragmentEmpleados();
-                } else if (id == R.id.nav_altas) {
-                    fragment = new FragmentAltas();
-                } else if (id == R.id.nav_asignaciones) {
-                    fragment = new FragmentAsignaciones();
-                } else if (id == R.id.nav_exit) { // Botón Salir
-                    finishAffinity(); // Finaliza todas las actividades y cierra la aplicación
-                    return true; // Salimos del listener
+                // Usar una variable final local para el departamento
+                final String userDepartment = finalDepartamento;
+
+                if ("TI".equalsIgnoreCase(userDepartment)) {
+                    if (id == R.id.nav_account) {
+                        fragment = new FragmentMiCuenta();
+                    } else if (id == R.id.nav_equipos) {
+                        fragment = new FragmentEquipos();
+                    } else if (id == R.id.nav_personal) {
+                        fragment = new FragmentEmpleados();
+                    } else if (id == R.id.nav_altas) {
+                        fragment = new FragmentAltas();
+                    } else if (id == R.id.nav_asignaciones) {
+                        fragment = new FragmentAsignaciones();
+                    } else if (id == R.id.nav_exit) {
+                        new AlertDialog.Builder(GateActivity.this)
+                                .setTitle("Salir")
+                                .setMessage("¿Estás seguro de que deseas salir?")
+                                .setPositiveButton("Sí", (dialog, which) -> finishAffinity())
+                                .setNegativeButton("No", null)
+                                .show();
+                        return true;
+                    }
+                } else {
+                    if (id == R.id.nav_account) {
+                        fragment = new FragmentMiCuenta();
+                    } else if (id == R.id.nav_personal) {
+                        fragment = new FragmentEmpleados();
+                    } else if (id == R.id.nav_exit) {
+                        new AlertDialog.Builder(GateActivity.this)
+                                .setTitle("Salir")
+                                .setMessage("¿Estás seguro de que deseas salir?")
+                                .setPositiveButton("Sí", (dialog, which) -> finishAffinity())
+                                .setNegativeButton("No", null)
+                                .show();
+                        return true;
+                    } else {
+                        Toast.makeText(GateActivity.this, "Acceso restringido", Toast.LENGTH_SHORT).show();
+                    }
                 }
-            } else {
-                if (id == R.id.nav_account) {
-                    fragment = new FragmentMiCuenta();
-                } else if (id == R.id.nav_personal) {
-                    fragment = new FragmentEmpleados();
-                } else if (id == R.id.nav_exit) { // Botón Salir
-                    new AlertDialog.Builder(this)
-                            .setTitle("Salir")
-                            .setMessage("¿Estás seguro de que deseas salir?")
-                            .setPositiveButton("Sí", (dialog, which) -> finishAffinity())
-                            .setNegativeButton("No", null)
-                            .show();
-                    return true;
+
+                if (fragment != null) {
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.fragment_container, fragment)
+                            .commit();
                 }
-                else {
-                    Toast.makeText(this, "Acceso restringido", Toast.LENGTH_SHORT).show();
-                }
+
+                drawerLayout.closeDrawer(GravityCompat.START);
+                return true;
             }
-
-            if (fragment != null) {
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, fragment)
-                        .commit();
-            }
-
-            drawerLayout.closeDrawer(GravityCompat.START);
-            return true;
         });
 
 
@@ -118,6 +133,7 @@ public class GateActivity extends AppCompatActivity {
 
     private void configureNavigationMenu(NavigationView navigationView, String departamento) {
         Menu menu = navigationView.getMenu();
+
         if (!"TI".equalsIgnoreCase(departamento)) {
             menu.findItem(R.id.nav_equipos).setVisible(false);
             menu.findItem(R.id.nav_altas).setVisible(false);
